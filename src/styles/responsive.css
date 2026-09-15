@@ -1,0 +1,685 @@
+@media (min-width: 1251px) {
+  h1 {
+    font-size: calc(var(--u) * 50);
+    font-weight: 300;
+    letter-spacing: -0.018em;
+  }
+  .wordmark {
+    font-size: calc(var(--u) * 30);
+    padding-left: calc(var(--u) * 18);
+    padding-right: calc(var(--u) * 18);
+  }
+  .nav-link {
+    padding-left: calc(var(--u) * 16.8);
+    padding-right: calc(var(--u) * 16.8);
+  }
+  .stat-number {
+    font-size: calc(var(--u) * 64);
+    font-weight: 250;
+    letter-spacing: 0;
+  }
+  .company-stats {
+    gap: calc(var(--u) * 46);
+  }
+  .clock-face {
+    transform: translate(calc(var(--u) * -6), calc(var(--u) * 6));
+  }
+}
+@media (min-width: 1825px) {
+  body {
+    padding-left: max(5.625vw, calc((100vw - 1620px) / 2));
+    padding-right: max(5.625vw, calc((100vw - 1620px) / 2));
+  }
+}
+@media (max-width: 1250px) {
+  :root {
+    --u: 1px;
+  }
+  body {
+    padding: 32px 24px 50px;
+  }
+  .dashboard-shell {
+    padding: 22px;
+    border-radius: 40px;
+  }
+  .topbar {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: 18px;
+  }
+  .wordmark {
+    font-size: 29px;
+  }
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav-link {
+    flex: 1;
+    padding: 13px 9px;
+    font-size: 13px;
+  }
+  .utility-nav {
+    margin-left: auto;
+  }
+  .topbar .wordmark {
+    margin-right: 0;
+  }
+  h1 {
+    margin-top: 32px;
+    font-size: 44px;
+    margin-bottom: 24px;
+  }
+  .overview {
+    height: auto;
+    gap: 28px;
+    margin-bottom: 25px;
+  }
+  .allocation {
+    width: 60%;
+    height: 76px;
+    grid-template-columns: 1fr 1fr 2.4fr 0.8fr;
+  }
+  .allocation-label {
+    font-size: 14px;
+    padding-left: 6px;
+  }
+  .allocation-bar {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  .company-stats {
+    gap: 16px;
+  }
+  .stat-number {
+    font-size: 44px;
+    gap: 4px;
+  }
+  .stat-number .icon {
+    width: 22px;
+    height: 22px;
+  }
+  .stat-label {
+    font-size: 12px;
+  }
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 340px 330px 320px;
+    gap: 10px;
+  }
+  .profile-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .progress-panel {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .timer-panel {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .employee-details {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .onboarding-panel {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+  .calendar-panel {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    height: 340px;
+  }
+  .portrait-source {
+    background-size: 468.52% auto;
+    background-position: 8.983% 47.375%;
+  }
+  .task-stack {
+    margin-top: 52px;
+  }
+  .panel,
+  .profile-card {
+    border-radius: 34px;
+  }
+  .panel h2 {
+    font-size: 25px;
+  }
+  .profile-caption h2 {
+    font-size: 25px;
+  }
+  .salary-pill {
+    font-size: 18px;
+  }
+  .calendar-toolbar h2 {
+    font-size: 20px;
+  }
+  .calendar-schedule {
+    --time-gutter: 70px;
+  }
+  .calendar-hours {
+    bottom: 12px;
+  }
+  .calendar-event {
+    min-height: 60px;
+  }
+  .team-event {
+    top: 74px;
+  }
+  .onboarding-event {
+    top: 158px;
+  }
+}
+@media (max-width: 760px) {
+  body {
+    padding: 16px 12px 30px;
+  }
+  .dashboard-shell {
+    padding: 16px;
+    border-radius: 32px;
+  }
+  .topbar {
+    row-gap: 17px;
+  }
+  .wordmark {
+    font-size: 26px;
+    padding: 10px 14px;
+  }
+  .utility-nav {
+    gap: 5px;
+  }
+  .utility-nav .icon-button,
+  .settings-button {
+    width: 42px;
+    height: 42px;
+  }
+  .settings-button {
+    padding: 0;
+  }
+  .settings-button span {
+    display: none;
+  }
+  .icon-button .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .main-nav {
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    flex: 0 0 auto;
+    padding: 13px 18px;
+  }
+  .topbar {
+    gap: 8px;
+    row-gap: 16px;
+  }
+  h1 {
+    font-size: clamp(29px, 5.8vw, 42px);
+    margin-top: 28px;
+    margin-bottom: 23px;
+    letter-spacing: -0.04em;
+  }
+  .overview {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    margin-bottom: 25px;
+  }
+  .allocation {
+    width: 100%;
+    height: 70px;
+    grid-template-columns: 1fr 1fr 2.2fr 0.8fr;
+    gap: 5px;
+  }
+  .allocation-label {
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    padding-left: 5px;
+  }
+  .allocation-bar {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  .company-stats {
+    justify-content: space-between;
+    padding: 0 5px;
+    gap: 10px;
+  }
+  .stat-number {
+    font-size: 48px;
+    gap: 5px;
+  }
+  .stat-label {
+    font-size: 13px;
+  }
+  .stat-number .icon {
+    height: 24px;
+    width: 24px;
+  }
+  .dashboard-grid {
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 310px 320px 320px;
+  }
+  .panel {
+    padding: 20px;
+  }
+  .profile-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 23px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .profile-caption h2 {
+    font-size: 22px;
+  }
+  .profile-caption p {
+    font-size: 12px;
+  }
+  .salary-pill {
+    padding: 7px 16px;
+    font-size: 16px;
+  }
+  .panel h2 {
+    font-size: 22px;
+  }
+  .panel-heading .icon-button {
+    width: 40px;
+    height: 40px;
+  }
+  .progress-summary {
+    gap: 13px;
+  }
+  .progress-summary strong {
+    font-size: 34px;
+  }
+  .progress-summary > span {
+    font-size: 12px;
+  }
+  .week-chart {
+    margin-top: 26px;
+  }
+  .day-column {
+    width: 22px;
+    font-size: 12px;
+  }
+  .task-stack {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .task-card {
+    padding: 24px 17px;
+  }
+  .task-heading h3 {
+    font-size: 17px;
+  }
+  .task-heading > span {
+    font-size: 35px;
+  }
+  .task-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .task-row {
+    gap: 9px;
+  }
+  .task-title {
+    font-size: 12px;
+  }
+  .task-date {
+    font-size: 10px;
+  }
+  .task-check {
+    width: 17px;
+    height: 17px;
+  }
+  .onboarding-percentage {
+    font-size: 34px;
+  }
+  .segment-label {
+    font-size: 12px;
+  }
+  .employee-details {
+    padding-top: 10px;
+  }
+  .employee-details summary {
+    font-size: 16px;
+    min-height: 54px;
+  }
+  .device-image {
+    --u: 0.8px;
+  }
+  .device-content {
+    gap: 8px;
+  }
+  .device-copy strong {
+    font-size: 16px;
+  }
+  .device-copy span {
+    font-size: 12px;
+  }
+  .calendar-panel {
+    height: 330px;
+    padding: 20px;
+  }
+  .calendar-toolbar h2 {
+    font-size: 18px;
+  }
+  .calendar-toolbar button {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  .calendar-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #d7d4b1 transparent;
+  }
+  .calendar-schedule {
+    min-width: 560px;
+  }
+  .calendar-toolbar {
+    gap: 5px;
+  }
+  .calendar-event {
+    min-height: 55px;
+  }
+  .calendar-event strong {
+    font-size: 12px;
+  }
+  .calendar-event > span > span {
+    font-size: 10px;
+  }
+  .calendar-event {
+    padding: 10px 12px;
+  }
+  .avatar {
+    --u: 0.85px;
+  }
+  .employee-details {
+    overflow: auto;
+  }
+}
+@media (max-width: 560px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .panel,
+  .profile-card {
+    border-radius: 30px;
+  }
+  .profile-card {
+    aspect-ratio: 1.025;
+    min-height: 285px;
+    order: 1;
+  }
+  .progress-panel {
+    height: 330px;
+    order: 2;
+  }
+  .timer-panel {
+    height: 330px;
+    order: 3;
+  }
+  .onboarding-panel {
+    height: 644px;
+    order: 4;
+  }
+  .employee-details {
+    height: 315px;
+    order: 5;
+  }
+  .calendar-panel {
+    order: 6;
+    height: 330px;
+  }
+  .portrait-source {
+    background-size: 468.52% 361.44%;
+  }
+  .profile-caption {
+    flex-wrap: nowrap;
+  }
+  .profile-caption h2 {
+    font-size: 23px;
+  }
+  .salary-pill {
+    font-size: 17px;
+    padding: 10px 18px;
+  }
+  .profile-caption p {
+    font-size: 13px;
+  }
+  .panel {
+    padding: 23px;
+  }
+  .panel h2 {
+    font-size: 24px;
+  }
+  .panel-heading .icon-button {
+    width: 46px;
+    height: 46px;
+  }
+  .progress-summary strong {
+    font-size: 38px;
+  }
+  .progress-summary > span {
+    font-size: 14px;
+  }
+  .week-chart {
+    margin-top: 22px;
+  }
+  .day-column {
+    width: 28px;
+    font-size: 13px;
+  }
+  .task-stack {
+    margin-top: 52px;
+  }
+  .task-card {
+    padding: 25px 22px;
+  }
+  .task-heading h3 {
+    font-size: 19px;
+  }
+  .task-heading > span {
+    font-size: 39px;
+  }
+  .task-row {
+    gap: 11px;
+  }
+  .task-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .task-title {
+    font-size: 13.5px;
+  }
+  .task-date {
+    font-size: 11.5px;
+  }
+  .task-check {
+    width: 18px;
+    height: 18px;
+  }
+  .onboarding-percentage {
+    font-size: 39px;
+  }
+  .segment-label {
+    font-size: 14px;
+  }
+  .employee-details {
+    padding-top: 11px;
+    padding-bottom: 16px;
+  }
+  .employee-details summary {
+    font-size: 17px;
+    min-height: 52px;
+  }
+  .device-copy strong {
+    font-size: 18px;
+  }
+  .device-copy span {
+    font-size: 13px;
+  }
+  .device-content {
+    gap: 13px;
+  }
+  .device-image {
+    --u: 1px;
+  }
+  .calendar-panel {
+    padding: 23px 17px;
+  }
+  .calendar-toolbar h2 {
+    font-size: 17px;
+    letter-spacing: -0.045em;
+  }
+  .calendar-toolbar button {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+  .timer-dial {
+    height: 191px;
+    width: 191px;
+  }
+}
+@media (max-width: 360px) {
+  body {
+    padding: 10px 8px 24px;
+  }
+  .dashboard-shell {
+    padding: 12px;
+    border-radius: 28px;
+  }
+  .topbar {
+    gap: 5px;
+    row-gap: 15px;
+  }
+  .wordmark {
+    font-size: 24px;
+    padding: 9px 12px;
+  }
+  .utility-nav {
+    gap: 3px;
+  }
+  .utility-nav .icon-button,
+  .settings-button {
+    width: 37px;
+    height: 37px;
+  }
+  .utility-nav .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .notification-dot {
+    top: 8px;
+    right: 11px;
+  }
+  .nav-link {
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+  h1 {
+    font-size: 29px;
+  }
+  .allocation-label {
+    font-size: 11px;
+  }
+  .allocation-bar {
+    padding: 0 10px;
+  }
+  .stat-number {
+    font-size: 41px;
+  }
+  .stat-number .icon {
+    width: 21px;
+    height: 21px;
+  }
+  .stat-label {
+    font-size: 12px;
+  }
+  .panel {
+    padding: 19px;
+  }
+  .panel h2 {
+    font-size: 22px;
+  }
+  .profile-caption {
+    left: 18px;
+    right: 18px;
+  }
+  .profile-caption h2 {
+    font-size: 21px;
+  }
+  .salary-pill {
+    font-size: 15px;
+    padding: 9px 14px;
+  }
+  .profile-caption p {
+    font-size: 11px;
+  }
+  .task-heading h3 {
+    font-size: 17px;
+  }
+  .task-heading > span {
+    font-size: 36px;
+  }
+  .task-card {
+    padding: 23px 18px;
+  }
+  .task-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .task-title {
+    font-size: 12.5px;
+  }
+  .task-date {
+    font-size: 10.5px;
+  }
+  .employee-details {
+    padding-top: 12px;
+  }
+  .employee-details summary {
+    font-size: 16px;
+  }
+  .device-copy strong {
+    font-size: 16px;
+  }
+  .device-image {
+    --u: 0.9px;
+  }
+  .calendar-panel {
+    padding: 22px 12px;
+  }
+  .calendar-toolbar h2 {
+    font-size: 16px;
+  }
+  .calendar-toolbar button {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Outfit;
+  src: url('../assets/fonts/Outfit.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --ink: #2f302e;
+  --muted: #686964;
+  --yellow: #ffdb5e;
+  --canvas: #a5acb7;
+  --card: rgba(255, 255, 255, 0.69);
+  --line: #d8d7ac;
+  --u: clamp(0.76px, 0.0625vw, 1.14px);
+  --font: Outfit, 'Avenir Next', 'Century Gothic', Futura, 'Trebuchet MS', sans-serif;
+  color-scheme: light;
+  font-family: var(--font);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--canvas);
+  font-synthesis: none;
+}
