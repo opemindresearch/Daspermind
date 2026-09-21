@@ -69,13 +69,13 @@ function DashboardWorkspace({
     const saved = await controller.toggleTask(task.id);
     if (saved)
       toast.notify(
-        `${task.title} ${saved.state.completedTaskIds.includes(task.id) ? 'completed' : 'reopened'}`,
+        `${task.title} ${saved.state.completedTaskIds.includes(task.id) ? 'completado' : 'pendiente'}`,
       );
   }
   async function savePreferences(preferences: DashboardPreferences) {
     if (await controller.savePreferences(preferences)) {
       setDialog(null);
-      toast.notify('Preferences saved');
+      toast.notify('Preferencias guardadas');
     }
   }
   async function restore() {
@@ -85,14 +85,14 @@ function DashboardWorkspace({
       calendar.reset();
       setExpanded('devices');
       setDialog(null);
-      toast.notify('Dashboard restored');
+      toast.notify('Perfil de ejemplo restablecido');
     }
   }
 
   return (
     <>
       <a className="skip-link" href="#main">
-        Skip to dashboard
+        Saltar al resumen
       </a>
       <div className="dashboard-shell">
         <DashboardHeader
@@ -109,7 +109,7 @@ function DashboardWorkspace({
               {controller.saveError}
             </p>
           ) : null}
-          <Overview company={data.company} onOpen={setDialog} />
+          <Overview company={data.company} pendingTasks={pendingTasks} onOpen={setDialog} />
           <div className="dashboard-grid">
             <ProfileCard employee={data.employee} onCompensation={() => setDialog('salary')} />
             <ProgressCard progress={data.progress} onDetails={() => setDialog('progress')} />
@@ -150,10 +150,10 @@ export function DashboardPage() {
   if (controller.status === 'error')
     return (
       <main className="dashboard-shell app-status" role="alert">
-        <h1>Dashboard unavailable</h1>
-        <p>We couldn’t load your workspace. Please try again.</p>
+        <h1>No se pudo cargar el perfil</h1>
+        <p>No fue posible abrir tu información. Vuelve a intentarlo.</p>
         <button className="dialog-primary" onClick={controller.retry}>
-          Try again
+          Reintentar
         </button>
       </main>
     );
@@ -161,7 +161,7 @@ export function DashboardPage() {
     return (
       <main className="dashboard-shell app-status" aria-busy="true">
         <span className="loading-dot" />
-        <p role="status">Loading your workspace…</p>
+        <p role="status">Cargando tu perfil docente…</p>
       </main>
     );
   return <DashboardWorkspace snapshot={controller.snapshot} controller={controller} />;

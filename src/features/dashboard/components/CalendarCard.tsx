@@ -1,3 +1,4 @@
+import { Icon } from '@/components/ui/Icon';
 import type { CalendarController } from '../hooks/useCalendar';
 import type { DialogKind } from '../model/navigation';
 export function CalendarCard({
@@ -13,7 +14,7 @@ export function CalendarCard({
         <button
           type="button"
           id="previous-month"
-          aria-label={`Previous month, ${calendar.previousLabel} ${calendar.previousYear}`}
+          aria-label={`Mes anterior, ${calendar.previousLabel} ${calendar.previousYear}`}
           onClick={calendar.previous}
         >
           {calendar.previousLabel}
@@ -24,7 +25,7 @@ export function CalendarCard({
         <button
           type="button"
           id="next-month"
-          aria-label={`Next month, ${calendar.nextLabel} ${calendar.nextYear}`}
+          aria-label={`Mes siguiente, ${calendar.nextLabel} ${calendar.nextYear}`}
           onClick={calendar.next}
         >
           {calendar.nextLabel}
@@ -34,7 +35,7 @@ export function CalendarCard({
         className="calendar-scroll"
         tabIndex={0}
         role="region"
-        aria-label="Weekly calendar. Scroll horizontally to see all days."
+        aria-label="Agenda personal de ejemplo. Desplázate horizontalmente para ver todos los días."
       >
         <div className="calendar-schedule">
           <div className="calendar-days" id="calendar-days">
@@ -49,7 +50,7 @@ export function CalendarCard({
             ))}
           </div>
           <div className="calendar-hours">
-            {['8:00 am', '9:00 am', '10:00 am', '11:00 am'].map((time) => (
+            {['8:00 h', '9:00 h', '10:00 h', '11:00 h'].map((time) => (
               <span key={time}>{time}</span>
             ))}
           </div>
@@ -73,16 +74,16 @@ export function CalendarCard({
                 </span>
                 <span className="avatar-group" aria-hidden="true">
                   {event.avatars.map((avatar) => (
-                    <i key={avatar} className={`avatar avatar-${avatar}`} />
+                    <i key={avatar} className={`avatar avatar-${avatar}`}><Icon name={event.kind === 'team' ? 'book' : 'file'} /></i>
                   ))}
                 </span>
               </button>
             ))}
           </div>
           <div className="calendar-empty" id="calendar-empty" hidden={calendar.events.length > 0}>
-            <span>No events scheduled</span>
+            <span>Sin actividades en este mes</span>
             <button type="button" id="back-to-september" onClick={calendar.reset}>
-              Back to {calendar.referenceMonth}
+              Volver a {calendar.referenceMonth.toLowerCase()}
             </button>
           </div>
         </div>

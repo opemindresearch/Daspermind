@@ -9,6 +9,16 @@ export const navigationItems = [
   'Reviews',
 ] as const;
 export type NavigationItem = (typeof navigationItems)[number];
+export const navigationLabels: Record<NavigationItem, string> = {
+  Dashboard: 'Resumen',
+  People: 'Mi perfil',
+  Hiring: 'Admisión',
+  Devices: 'Formación',
+  Apps: 'Recursos',
+  Salary: 'Mi folio',
+  Calendar: 'Agenda',
+  Reviews: 'Avisos',
+};
 export type DialogKind =
   | Exclude<NavigationItem, 'Dashboard' | 'Calendar'>
   | 'profile'

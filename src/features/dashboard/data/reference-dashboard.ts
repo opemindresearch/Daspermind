@@ -1,60 +1,61 @@
 import type { DashboardData, DashboardState } from '../model/dashboard.schema';
 
-/** Only values supplied in the approved dashboard reference. */
+/** Illustrative teacher profile. No values here are official records or admission results. */
 export const referenceDashboard: DashboardData = {
-  greeting: 'Welcome in, Nixtio',
+  greeting: 'Hola, maestro Luis',
   company: {
-    employees: 78,
-    hirings: 56,
-    projects: 203,
-    allocation: { interviews: 15, hired: 15, projectTime: 60, output: 10 },
+    employees: 8,
+    hirings: 2,
+    projects: 3,
+    allocation: { interviews: 100, hired: 80, projectTime: 45, output: 0 },
   },
   employee: {
-    id: 'lora-piterson',
-    name: 'Lora Piterson',
-    role: 'UX/UI Designer',
-    compensationLabel: '$1,200',
-    device: { name: 'MacBook Air', version: 'Version M1' },
+    id: 'docente-demo',
+    name: 'Luis Herrera',
+    role: 'Primaria · Perfil de ejemplo',
+    compensationLabel: 'AB-DEMO',
+    device: { name: 'Educación primaria', version: 'Licenciatura · Titulado' },
   },
-  progress: { weeklyHours: 6.1, highlightedDay: 'Friday', highlightedDuration: '5h 23m' },
+  progress: { weeklyHours: 6.1, highlightedDay: 'Viernes', highlightedDuration: '1 h 40m' },
   onboarding: {
-    percent: 18,
-    totalTasks: 8,
-    segments: [30, 25, 0],
+    percent: 40,
+    totalTasks: 5,
+    // Independent example progress values for profile, documents and preparation.
+    segments: [80, 75, 45],
     tasks: [
-      { id: 'interview', title: 'Interview', dateLabel: 'Sep 13, 08:30', kind: 'interview' },
-      { id: 'meeting', title: 'Team Meeting', dateLabel: 'Sep 13, 10:30', kind: 'meeting' },
-      { id: 'update', title: 'Project Update', dateLabel: 'Sep 13, 13:00', kind: 'update' },
-      { id: 'goals', title: 'Discuss Q3 Goals', dateLabel: 'Sep 13, 14:45', kind: 'goals' },
-      { id: 'policy', title: 'HR Policy Review', dateLabel: 'Sep 13, 16:30', kind: 'policy' },
+      { id: 'convocatoria', title: 'Revisar convocatoria', dateLabel: 'Consulta de referencia', kind: 'interview' },
+      { id: 'expediente', title: 'Organizar expediente', dateLabel: 'Documentos de ejemplo', kind: 'meeting' },
+      { id: 'curso', title: 'Revisar curso NEM', dateLabel: 'Habilidades docentes', kind: 'update' },
+      { id: 'guia', title: 'Repasar guía de estudio', dateLabel: 'Conocimientos y aptitudes', kind: 'goals' },
+      { id: 'avisos', title: 'Consultar avisos', dateLabel: 'Portal oficial USICAMM', kind: 'policy' },
     ],
   },
   calendar: {
-    year: 2024,
+    year: 2026,
     month: 8,
-    // Preserve the artwork's labels; its weekday/date combination is not a real September week.
+    // Personal example agenda, not the official admission calendar.
     referenceDays: [
-      { day: 'Mon', date: 22 },
-      { day: 'Tue', date: 23 },
-      { day: 'Wed', date: 24 },
-      { day: 'Thu', date: 25 },
-      { day: 'Fri', date: 26 },
-      { day: 'Sat', date: 27 },
+      { day: 'Lun', date: 14 },
+      { day: 'Mar', date: 15 },
+      { day: 'Mié', date: 16 },
+      { day: 'Jue', date: 17 },
+      { day: 'Vie', date: 18 },
+      { day: 'Sáb', date: 19 },
     ],
     events: [
       {
         id: 'team-event',
-        title: 'Weekly Team Sync',
-        subtitle: 'Discuss progress on projects',
-        timeLabel: '8:00 am',
+        title: 'Repaso de la guía',
+        subtitle: 'Agenda personal · Ejemplo',
+        timeLabel: '15 de septiembre · 8:00 h',
         kind: 'team',
         avatars: ['one', 'two', 'three'],
       },
       {
         id: 'onboarding-event',
-        title: 'Onboarding Session',
-        subtitle: 'Introduction for new hires',
-        timeLabel: '10:00 am',
+        title: 'Revisión de documentos',
+        subtitle: 'Recordatorio · Ejemplo',
+        timeLabel: '17 de septiembre · 10:00 h',
         kind: 'onboarding',
         avatars: ['four', 'five'],
       },
@@ -64,7 +65,7 @@ export const referenceDashboard: DashboardData = {
 export function createInitialState(): DashboardState {
   return {
     schemaVersion: 1,
-    completedTaskIds: ['interview', 'meeting'],
+    completedTaskIds: ['convocatoria', 'expediente'],
     elapsedSeconds: 155,
     preferences: { rememberChanges: true, reduceMotion: false },
   };

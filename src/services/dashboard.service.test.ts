@@ -19,11 +19,11 @@ function setup() {
 describe('dashboard service', () => {
   it('toggles an existing task without mutating the caller snapshot', async () => {
     const { snapshot, connector, service } = setup();
-    const updated = await service.toggleTask(snapshot, 'update');
-    expect(updated.state.completedTaskIds).toEqual(['interview', 'meeting', 'update']);
-    expect(snapshot.state.completedTaskIds).toEqual(['interview', 'meeting']);
+    const updated = await service.toggleTask(snapshot, 'curso');
+    expect(updated.state.completedTaskIds).toEqual(['convocatoria', 'expediente', 'curso']);
+    expect(snapshot.state.completedTaskIds).toEqual(['convocatoria', 'expediente']);
     expect(connector.persistState).toHaveBeenCalledWith(updated.state);
-    const reopened = await service.toggleTask(updated, 'update');
+    const reopened = await service.toggleTask(updated, 'curso');
     expect(reopened.state.completedTaskIds).toEqual(snapshot.state.completedTaskIds);
   });
 
@@ -37,7 +37,7 @@ describe('dashboard service', () => {
   it('propagates persistence errors and retains the original snapshot', async () => {
     const { snapshot, connector, service } = setup();
     connector.persistState.mockRejectedValue(new Error('Connection lost'));
-    await expect(service.toggleTask(snapshot, 'update')).rejects.toThrow('Connection lost');
+    await expect(service.toggleTask(snapshot, 'curso')).rejects.toThrow('Connection lost');
     expect(snapshot.state).toEqual(createInitialState());
   });
 

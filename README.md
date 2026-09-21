@@ -1,6 +1,6 @@
-# Daspermind · Crextio dashboard
+# Daspermind · Perfil docente USICAMM
 
-Réplica del dashboard de la imagen proporcionada, implementada en **React, TypeScript y TSX**. Conserva la composición, la tipografía, los colores, las imágenes y los datos visibles de la referencia. Funciona localmente y separa componentes, lógica de negocio y conectores.
+Perfil de ejemplo de un docente aspirante al proceso de admisión de **USICAMM**, implementado en **React, TypeScript y TSX**. Conserva la estructura y el comportamiento responsive del dashboard anterior. El contenido está en español y utiliza una paleta guinda, dorado y marfil.
 
 ![Vista de escritorio del dashboard React](docs/preview.png)
 
@@ -26,9 +26,9 @@ Vite sirve los archivos compilados desde `dist/`. La aplicación se ejecuta medi
 
 ## Funcionalidad
 
-- Tarjetas de perfil, métricas, progreso, dispositivos y compensación.
+- Perfil docente, formación inicial, folio de ejemplo y preparación.
 - Temporizador con inicio, pausa, reinicio y guardado de tiempo.
-- Tareas de onboarding seleccionables y notificaciones de pendientes.
+- Checklist de participación con porcentaje y contador de pendientes sincronizados.
 - Calendario con cambio de mes, estado vacío y detalle de eventos.
 - Acordeones, diálogos con control de foco y navegación por teclado.
 - Preferencias de persistencia y reducción de movimiento; restauración del estado inicial.
@@ -51,12 +51,12 @@ src/
 ├── services/                  # Operaciones independientes de React
 ├── connectors/
 │   ├── contracts/             # Interfaz de los conectores
-│   ├── local/                 # Persistencia local y migración
+│   ├── local/                 # Persistencia local del perfil
 │   └── http/                  # Cliente HTTP y adaptador para una API
 ├── config/                    # Configuración de entorno validada
 ├── hooks/                     # Hooks compartidos
 ├── lib/                       # Almacenamiento seguro y cálculo de tiempo
-├── assets/                    # Fuente local, licencia e imagen original
+├── assets/                    # Fuente local, licencia y recursos docentes
 └── styles/                    # Variables, componentes, responsive y estados
 tests/e2e/                     # Pruebas de navegador con Playwright
 docs/                          # Arquitectura, conectores y validación
@@ -67,9 +67,9 @@ Los componentes no leen `localStorage` ni llaman a `fetch`. Usan hooks, los hook
 
 ## Datos y conectores
 
-El modo predeterminado es `local`. Los datos de la imagen están en `reference-dashboard.ts`. Las tareas completadas, el tiempo y las preferencias se guardan en `localStorage` bajo `daspermind.dashboard.v1`.
+El modo predeterminado es `local`. Los datos ilustrativos del perfil están en `reference-dashboard.ts`. Las tareas completadas, el tiempo y las preferencias se guardan en `localStorage` bajo `daspermind.usicamm.v1`.
 
-Si el navegador bloquea el almacenamiento, la aplicación conserva los cambios durante la sesión en memoria. La migración desde el prototipo HTML funciona cuando su clave anterior está disponible en **el mismo origen del navegador**; puertos diferentes tienen almacenamiento separado.
+Si el navegador bloquea el almacenamiento, la aplicación conserva los cambios durante la sesión en memoria. El perfil usa una clave propia: no importa ni modifica los avances guardados del prototipo anterior. Puertos diferentes tienen almacenamiento separado.
 
 Para configurar otro origen de datos, copiar `.env.example` a `.env.local`:
 
@@ -104,8 +104,8 @@ GitHub Actions ejecuta las comprobaciones en cada push a `main` y en los pull re
 
 ## Referencia visual y recursos
 
-La marca **Crextio**, los textos en inglés y las cifras proceden de la referencia; **Daspermind** es el nombre del proyecto y del repositorio. La navegación complementaria abre detalles locales del mismo dashboard.
+El nombre, folio, cifras y actividades son datos de ejemplo. La agenda es personal y no representa el calendario oficial de admisión. El checklist organiza el seguimiento del usuario; no registra solicitudes ni valida documentos ante USICAMM.
 
-La imagen suministrada se conserva como recurso local y se utiliza como sprite CSS para la fotografía, el dispositivo y los avatares. Outfit está incluida con su [licencia SIL Open Font License](src/assets/fonts/OFL-Outfit.txt). El dashboard no descarga fuentes o imágenes desde terceros durante su uso.
+Se mantiene la cuadrícula original de seis tarjetas y sus puntos de adaptación. Los recursos docentes proceden de la carpeta Drive suministrada y se sirven localmente. Outfit mantiene su [licencia SIL Open Font License](src/assets/fonts/OFL-Outfit.txt).
 
-Algunas cifras y fechas del diseño no son coherentes entre sí; se preservan por fidelidad visual y se explican en [Validación y límites](docs/validation.md).
+Consulta la [adaptación del perfil y sus fuentes](docs/teacher-profile.md) y el [alcance de la validación](docs/validation.md).

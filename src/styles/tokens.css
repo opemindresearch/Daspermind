@@ -5,12 +5,15 @@
   font-display: swap;
 }
 :root {
-  --ink: #2f302e;
-  --muted: #686964;
-  --yellow: #ffdb5e;
-  --canvas: #a5acb7;
-  --card: rgba(255, 255, 255, 0.69);
-  --line: #d8d7ac;
+  --ink: #332b2e;
+  --muted: #73656a;
+  --yellow: #dbc995;
+  --brand: #8b1e43;
+  --brand-deep: #611232;
+  --gold: #a17f3b;
+  --canvas: #c4bfc1;
+  --card: rgba(255, 253, 249, 0.88);
+  --line: #d8c8b1;
   --u: clamp(0.76px, 0.0625vw, 1.14px);
   --font: Outfit, 'Avenir Next', 'Century Gothic', Futura, 'Trebuchet MS', sans-serif;
   color-scheme: light;

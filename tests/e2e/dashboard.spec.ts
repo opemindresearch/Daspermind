@@ -8,24 +8,30 @@ async function restore(page: Page) {
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Welcome in, Nixtio');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Hola, maestro Luis');
 });
 
 test('task changes survive reload and notifications reflect the pending tasks', async ({
   page,
 }) => {
-  await expect(page.locator('#task-count')).toHaveText('2/8');
-  await page.locator('[data-task="update"]').click();
-  await expect(page.locator('#task-count')).toHaveText('3/8');
+  await expect(page.locator('#task-count')).toHaveText('2/5');
+  await expect(page.locator('#pending-count')).toHaveText('3');
+  await expect(page.locator('.onboarding-percentage')).toHaveText('40%');
+  await page.locator('[data-task="curso"]').click();
+  await expect(page.locator('#task-count')).toHaveText('3/5');
+  await expect(page.locator('#pending-count')).toHaveText('2');
+  await expect(page.locator('.onboarding-percentage')).toHaveText('60%');
   await page.reload();
-  await expect(page.locator('[data-task="update"]')).toHaveAttribute('aria-checked', 'true');
-  await expect(page.locator('#task-count')).toHaveText('3/8');
-  for (const id of ['goals', 'policy']) await page.locator(`[data-task="${id}"]`).click();
+  await expect(page.locator('[data-task="curso"]')).toHaveAttribute('aria-checked', 'true');
+  await expect(page.locator('#task-count')).toHaveText('3/5');
+  for (const id of ['guia', 'avisos']) await page.locator(`[data-task="${id}"]`).click();
+  await expect(page.locator('#pending-count')).toHaveText('0');
+  await expect(page.locator('.onboarding-percentage')).toHaveText('100%');
   await page.locator('[data-dialog="notifications"]').click();
-  await expect(page.locator('#dialog-content')).toContainText('caught up');
+  await expect(page.locator('#dialog-content')).toContainText('No tienes pendientes');
   await page.keyboard.press('Escape');
   await restore(page);
-  await expect(page.locator('#task-count')).toHaveText('2/8');
+  await expect(page.locator('#task-count')).toHaveText('2/5');
 });
 
 test('timer starts, pauses, persists, resets, and shares its state with the dialog', async ({
@@ -43,9 +49,9 @@ test('timer starts, pauses, persists, resets, and shares its state with the dial
   await expect(page.locator('#timer-display')).toHaveText(paused);
   await page.locator('[data-dialog="timer"]').click();
   await expect(page.locator('#modal-timer')).toHaveText(paused);
-  await page.getByRole('button', { name: 'Start timer', exact: true }).last().click();
-  await expect(page.getByRole('button', { name: 'Pause timer', exact: true }).last()).toBeVisible();
-  await page.getByRole('button', { name: 'Pause timer', exact: true }).last().click();
+  await page.getByRole('button', { name: 'Iniciar estudio', exact: true }).last().click();
+  await expect(page.getByRole('button', { name: 'Pausar estudio', exact: true }).last()).toBeVisible();
+  await page.getByRole('button', { name: 'Pausar estudio', exact: true }).last().click();
   await page.keyboard.press('Escape');
   await page.locator('#timer-reset').click();
   await expect(page.locator('#timer-display')).toHaveText('00:00');
@@ -55,19 +61,19 @@ test('timer starts, pauses, persists, resets, and shares its state with the dial
 
 test('calendar month navigation, event details and employee accordions work', async ({ page }) => {
   await page.locator('#next-month').click();
-  await expect(page.locator('#calendar-month')).toHaveText('October 2024');
+  await expect(page.locator('#calendar-month')).toHaveText('Octubre 2026');
   await expect(page.locator('#calendar-empty')).toBeVisible();
   await expect(page.locator('.calendar-event')).toHaveCount(0);
   await page.locator('#back-to-september').click();
-  await expect(page.locator('#calendar-month')).toHaveText('September 2024');
+  await expect(page.locator('#calendar-month')).toHaveText('Septiembre 2026');
   await page.locator('.team-event').click();
-  await expect(page.locator('#dialog-title')).toHaveText('Weekly Team Sync');
+  await expect(page.locator('#dialog-title')).toHaveText('Repaso de la guía');
   await page.keyboard.press('Escape');
-  await page.locator('summary').filter({ hasText: 'Compensation Summary' }).click();
+  await page.locator('summary').filter({ hasText: 'Mi participación' }).click();
   await expect(page.locator('#devices-details')).not.toHaveAttribute('open');
-  await expect(page.locator('details[open]')).toContainText('$1,200');
+  await expect(page.locator('details[open]')).toContainText('AB-DEMO');
   await page.locator('#devices-details summary').click();
-  await expect(page.locator('details[open]')).toContainText('MacBook Air');
+  await expect(page.locator('details[open]')).toContainText('Educación primaria');
 });
 
 test('navigation dialogs retain keyboard focus and restore it on Escape', async ({ page }) => {
@@ -103,11 +109,11 @@ test('preferences persist and opting out of remembering clears session edits on 
   await page.locator('#save-settings').click();
   await expect(page.locator('#detail-dialog')).not.toBeVisible();
   await expect(page.locator('html')).toHaveClass('reduce-motion');
-  await page.locator('[data-task="goals"]').click();
-  await expect(page.locator('#task-count')).toHaveText('3/8');
+  await page.locator('[data-task="guia"]').click();
+  await expect(page.locator('#task-count')).toHaveText('3/5');
   await page.reload();
   await expect(page.locator('html')).toHaveClass('reduce-motion');
-  await expect(page.locator('#task-count')).toHaveText('2/8');
+  await expect(page.locator('#task-count')).toHaveText('2/5');
   await page.locator('[data-dialog="settings"]').click();
   await expect(page.locator('#setting-remember')).not.toBeChecked();
   await expect(page.locator('#setting-motion')).toBeChecked();
@@ -117,8 +123,8 @@ test('mobile calendar can be scrolled by keyboard and dialogs fit in the viewpor
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.locator('[data-task="goals"]').click();
-  await expect(page.locator('#task-count')).toHaveText('3/8');
+  await page.locator('[data-task="guia"]').click();
+  await expect(page.locator('#task-count')).toHaveText('3/5');
   const calendar = page.locator('.calendar-scroll');
   await calendar.scrollIntoViewIfNeeded();
   await calendar.focus();
@@ -146,11 +152,11 @@ test('default local mode loads its own assets with no external requests or brows
       external.push(request.url());
   });
   await page.reload();
-  await expect(page.locator('#task-count')).toHaveText('2/8');
+  await expect(page.locator('#task-count')).toHaveText('2/5');
   await page.evaluate(() => document.fonts.ready);
   expect(await page.evaluate(() => document.fonts.check('16px Outfit'))).toBe(true);
-  await page.locator('[data-task="update"]').click();
-  await expect(page.locator('#task-count')).toHaveText('3/8');
+  await page.locator('[data-task="curso"]').click();
+  await expect(page.locator('#task-count')).toHaveText('3/5');
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });
@@ -165,7 +171,7 @@ for (const width of [320, 375, 390, 560, 561, 768, 800, 1024, 1250, 1251, 1440, 
       true,
     );
     await expect(page.locator('#timer-display')).toBeVisible();
-    await expect(page.locator('#task-count')).toHaveText('2/8');
-    await expect(page.locator('#calendar-month')).toHaveText('September 2024');
+    await expect(page.locator('#task-count')).toHaveText('2/5');
+    await expect(page.locator('#calendar-month')).toHaveText('Septiembre 2026');
   });
 }

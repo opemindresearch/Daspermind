@@ -1,0 +1,245 @@
+/* USICAMM content skin. Card placement, sizing and responsive breakpoints stay in the original styles. */
+.dashboard-shell {
+  background:
+    radial-gradient(ellipse at 98% 48%, #e7dcca 0%, #f0e8dd80 32%, transparent 70%),
+    linear-gradient(120deg, #f0ebea 10%, #f4f0e9 65%, #ece2d5 100%);
+  box-shadow: 0 calc(var(--u) * 94) calc(var(--u) * 74) calc(var(--u) * -72) #3e263e80;
+}
+.wordmark {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fffaf3;
+}
+.wordmark:hover,
+.nav-link.is-active,
+.interviews .allocation-bar,
+.icon-button.dark,
+.dialog-primary,
+.calendar-empty button,
+.skip-link,
+.toast {
+  background: var(--brand-deep);
+  color: #fffaf3;
+}
+.wordmark:hover,
+.icon-button.dark:hover,
+.dialog-primary:hover {
+  background: var(--brand);
+}
+h1,
+.panel h2,
+.stat-number,
+.progress-summary strong,
+.timer-reading > span:first-child,
+.onboarding-percentage {
+  color: var(--brand-deep);
+}
+.stat-number > .icon {
+  background: #8b1e4310;
+  color: var(--brand);
+}
+.stat:hover .stat-number {
+  color: var(--brand);
+}
+.icon-button:hover,
+.settings-button:hover,
+.calendar-toolbar button:hover,
+.dialog-shortcuts button:hover {
+  background: #e9dabc;
+  box-shadow: 0 3px 12px #61123212;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+.calendar-scroll:focus-visible {
+  outline-color: var(--brand);
+}
+.notification-dot {
+  background: var(--brand);
+}
+.hired .allocation-bar {
+  color: #493717;
+}
+.project-time .allocation-bar {
+  background: repeating-linear-gradient(124deg, #e5d9d800 0 7px, #b294a243 7px 9px);
+  color: #56414b;
+}
+.output .allocation-bar {
+  color: #56414b;
+  border-color: #b7a8ab;
+}
+.profile-card {
+  background: var(--brand-deep);
+}
+.portrait-source {
+  background-image: url('../assets/usicamm/docente.jpg');
+  background-size: cover;
+  background-position: center 22%;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(#000 0%, #000 60%, transparent 90%);
+}
+.portrait-shade {
+  background: linear-gradient(0deg, #611232fa 0%, #61123299 60%, transparent 100%);
+}
+.profile-caption p {
+  color: #fff7e7;
+}
+.salary-pill {
+  border-color: #dbc995;
+  color: #fff7e7;
+}
+.work-bar,
+.day-dot {
+  background: var(--brand);
+}
+.selected .work-bar,
+.selected .day-dot {
+  background: var(--gold);
+}
+.weekend .work-bar {
+  background: repeating-linear-gradient(135deg, #bcaeab 0 1px, transparent 1px 3px);
+}
+.chart-tooltip {
+  background: var(--brand-deep);
+  color: #fff7e7;
+}
+.day-column,
+.day-column.weekend {
+  color: #756767;
+}
+.timer-arc {
+  stroke: var(--gold);
+}
+.timer-panel.is-running .timer-arc {
+  stroke: var(--brand);
+}
+.timer-tick {
+  stroke: #755763;
+}
+.onboarding-segment.yellow > div {
+  background: var(--yellow);
+  color: #493717;
+}
+.onboarding-segment.charcoal > div {
+  background: var(--brand);
+}
+.onboarding-segment.gray > div {
+  background: #b6a1aa;
+}
+.onboarding-segment:not(:first-child)::before {
+  background: #b29c9d;
+}
+.sheet-one {
+  background: #fff9ed;
+}
+.sheet-two {
+  background: #bf9ca9;
+}
+.task-card {
+  background: var(--brand-deep);
+  color: #fffaf3;
+}
+.task-icon {
+  background: #fcf7ec;
+  color: var(--brand);
+}
+.task-date,
+.is-complete .task-title {
+  color: #e3c4d0;
+}
+.task-check {
+  background: #a15d77;
+  color: #513914;
+}
+.is-complete .task-icon {
+  background: #ffffff20;
+  color: #f4dfe7;
+}
+.is-complete .task-check {
+  background: var(--yellow);
+}
+.employee-details,
+.main-nav {
+  scrollbar-color: #bda591 transparent;
+}
+.employee-details details {
+  background-image: repeating-linear-gradient(90deg, #d5c1a7 0 2px, transparent 2px 9px);
+}
+.device-image {
+  background-image: url('../assets/usicamm/formacion.jpg');
+  background-size: contain;
+  background-position: center;
+}
+.device-copy span,
+.detail-content,
+.empty-detail,
+.calendar-days,
+.calendar-event > span > span,
+#dialog-content > p,
+.dialog-list > div > span {
+  color: #726465;
+}
+.calendar-days .selected-day {
+  color: var(--brand);
+}
+.calendar-lines > i {
+  background-image: repeating-linear-gradient(180deg, #d4bfa6 0 2px, transparent 2px 7px);
+}
+.team-event {
+  background: var(--brand);
+  color: #fffaf3;
+}
+.team-event > span > span {
+  color: #f0d5de;
+}
+.onboarding-event {
+  background: #fffdf8;
+  color: var(--brand-deep);
+}
+.avatar {
+  background-image: none;
+  background-color: #f3e7ce;
+  color: var(--brand-deep);
+  display: grid;
+  place-items: center;
+  border-color: var(--brand);
+}
+.avatar .icon {
+  width: 60%;
+  height: 60%;
+}
+.calendar-empty {
+  background: #f5eee6e8;
+}
+#detail-dialog {
+  background: linear-gradient(140deg, #fffdf9, #f2e7dc);
+  border-color: #ede0cf;
+}
+.dialog-eyebrow {
+  color: var(--brand);
+}
+.dialog-list > div {
+  border-color: #ddcbbf;
+}
+.dialog-secondary {
+  border-color: #bfa58d;
+}
+.setting-row input {
+  accent-color: var(--brand);
+}
+.save-error {
+  background: #fce9ed;
+  border-color: #b25976;
+}
+.detail-content a,
+.resource-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.admission-brand {
+  width: 160px;
+  max-width: 100%;
+  margin-bottom: 18px;
+}

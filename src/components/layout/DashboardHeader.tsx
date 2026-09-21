@@ -2,6 +2,7 @@ import { Icon } from '@/components/ui/Icon';
 import { IconButton } from '@/components/ui/IconButton';
 import {
   navigationItems,
+  navigationLabels,
   type NavigationItem,
   type DialogKind,
 } from '@/features/dashboard/model/navigation';
@@ -15,10 +16,10 @@ type Props = {
 export function DashboardHeader({ active, employeeName, pendingTasks, onNavigate, onOpen }: Props) {
   return (
     <header className="topbar">
-      <a className="wordmark" href="#main" aria-label="Crextio home">
-        Crextio
+      <a className="wordmark" href="#main" aria-label="USICAMM, perfil docente de ejemplo">
+        USICAMM
       </a>
-      <nav className="main-nav" aria-label="Main navigation">
+      <nav className="main-nav" aria-label="Navegación principal">
         {navigationItems.map((item) => {
           const selected =
             active === item ||
@@ -32,7 +33,7 @@ export function DashboardHeader({ active, employeeName, pendingTasks, onNavigate
               aria-current={selected ? 'page' : undefined}
               onClick={() => onNavigate(item)}
             >
-              {item}
+              {navigationLabels[item]}
             </button>
           );
         })}
@@ -45,11 +46,11 @@ export function DashboardHeader({ active, employeeName, pendingTasks, onNavigate
           onClick={() => onOpen('settings')}
         >
           <Icon name="settings" />
-          <span>Setting</span>
+          <span>Ajustes</span>
         </button>
         <IconButton
           icon="bell"
-          label={`Notifications, ${pendingTasks} pending ${pendingTasks === 1 ? 'task' : 'tasks'}`}
+          label={`Notificaciones, ${pendingTasks} ${pendingTasks === 1 ? 'pendiente' : 'pendientes'}`}
           className="notification-button"
           data-dialog="notifications"
           onClick={() => onOpen('notifications')}
@@ -58,7 +59,7 @@ export function DashboardHeader({ active, employeeName, pendingTasks, onNavigate
         </IconButton>
         <IconButton
           icon="user"
-          label={`Open ${employeeName}'s profile`}
+          label={`Abrir el perfil de ${employeeName}`}
           data-dialog="profile"
           onClick={() => onOpen('profile')}
         />

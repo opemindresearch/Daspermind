@@ -3,12 +3,12 @@ import { IconButton } from '@/components/ui/IconButton';
 import type { DashboardData } from '../model/dashboard.schema';
 // Geometry reconstructed from the image; not invented daily work-hour measurements.
 const bars = [
-  { id: 'sun', label: 'S', top: 52, height: 62, weekend: true },
-  { id: 'mon', label: 'M', top: 28, height: 86 },
-  { id: 'tue', label: 'T', top: 42, height: 51 },
-  { id: 'wed', label: 'W', top: 59, height: 51 },
-  { id: 'thu', label: 'T', top: 25, height: 78 },
-  { id: 'fri', label: 'F', top: 14, height: 100, selected: true },
+  { id: 'sun', label: 'D', top: 52, height: 62, weekend: true },
+  { id: 'mon', label: 'L', top: 28, height: 86 },
+  { id: 'tue', label: 'M', top: 42, height: 51 },
+  { id: 'wed', label: 'M', top: 59, height: 51 },
+  { id: 'thu', label: 'J', top: 25, height: 78 },
+  { id: 'fri', label: 'V', top: 14, height: 100, selected: true },
   { id: 'sat', label: 'S', top: 59, height: 55, weekend: true },
 ];
 type BarStyle = CSSProperties & { '--bar-top': number; '--bar-height': number };
@@ -22,10 +22,10 @@ export function ProgressCard({
   return (
     <section className="panel progress-panel" id="progress-panel" aria-labelledby="progress-title">
       <div className="panel-heading">
-        <h2 id="progress-title">Progress</h2>
+        <h2 id="progress-title">Preparación</h2>
         <IconButton
           icon="arrow"
-          label="View work progress details"
+          label="Ver mi preparación"
           data-dialog="progress"
           onClick={onDetails}
         />
@@ -33,14 +33,14 @@ export function ProgressCard({
       <div className="progress-summary">
         <strong>{progress.weeklyHours.toFixed(1)} h</strong>
         <span>
-          Work Time
+          Horas de estudio
           <br />
-          this week
+          esta semana
         </span>
       </div>
       <div
         className="week-chart"
-        aria-label={`Work time by day, ${progress.highlightedDay} selected: ${progress.highlightedDuration}`}
+        aria-label={`Estudio de ejemplo por día, ${progress.highlightedDay}: ${progress.highlightedDuration}`}
       >
         <div className="chart-rule" />
         {bars.map((bar) => {

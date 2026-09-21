@@ -12,7 +12,7 @@ export function ProfileCard({
       id="profile-card"
       aria-label={`${employee.name}, ${employee.role}`}
     >
-      <div className="portrait-source" role="img" aria-label={`${employee.name} smiling`} />
+      <div className="portrait-source" role="img" aria-label="Ilustración de un docente para el perfil de ejemplo" />
       <div className="portrait-shade" />
       <div className="profile-caption">
         <div>
@@ -23,7 +23,7 @@ export function ProfileCard({
           type="button"
           className="salary-pill"
           data-dialog="salary"
-          aria-label={`View compensation summary, ${employee.compensationLabel}`}
+          aria-label={`Ver folio de ejemplo, ${employee.compensationLabel}`}
           onClick={onCompensation}
         >
           {employee.compensationLabel}

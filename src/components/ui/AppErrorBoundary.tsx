@@ -8,10 +8,10 @@ export class AppErrorBoundary extends Component<{ children: ReactNode }, { faile
     if (this.state.failed)
       return (
         <main className="dashboard-shell app-status" role="alert">
-          <h1>Something went wrong</h1>
-          <p>Please reload your workspace and try again.</p>
+          <h1>Ocurrió un problema</h1>
+          <p>Recarga tu perfil para volver a intentarlo.</p>
           <button className="dialog-primary" onClick={() => window.location.reload()}>
-            Reload dashboard
+            Recargar perfil
           </button>
         </main>
       );

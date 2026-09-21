@@ -50,19 +50,19 @@ export function useWorkTimer(
     const timestamp = performance.now();
     setNow(timestamp);
     setClock({ base: clock.base, startedAt: timestamp });
-    notify('Time tracker started');
+    notify('Sesión de estudio iniciada');
   }, [clock, notify]);
   const pause = useCallback(() => {
     if (clock.startedAt === null) return;
     const seconds = elapsedAt(clock.base, clock.startedAt, performance.now());
     setClock({ base: seconds, startedAt: null });
     void persist(seconds);
-    notify('Time tracker paused');
+    notify('Sesión de estudio en pausa');
   }, [clock, persist, notify]);
   const reset = useCallback(() => {
     setClock({ base: 0, startedAt: null });
     void persist(0);
-    notify('Timer reset');
+    notify('Temporizador reiniciado');
   }, [persist, notify]);
   const restore = useCallback(
     (seconds: number) => setClock({ base: seconds, startedAt: null }),

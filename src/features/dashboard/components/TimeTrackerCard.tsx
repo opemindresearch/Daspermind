@@ -9,10 +9,10 @@ export function TimeTrackerCard({ timer, onDetails }: { timer: WorkTimer; onDeta
       aria-labelledby="timer-title"
     >
       <div className="panel-heading">
-        <h2 id="timer-title">Time tracker</h2>
+        <h2 id="timer-title">Mi estudio</h2>
         <IconButton
           icon="arrow"
-          label="View time tracker"
+          label="Ver tiempo de estudio"
           data-dialog="timer"
           onClick={onDetails}
         />
@@ -35,17 +35,17 @@ export function TimeTrackerCard({ timer, onDetails }: { timer: WorkTimer; onDeta
           <circle className="timer-arc" cx="100" cy="100" r="81" pathLength="100" />
         </svg>
         <div className="timer-reading">
-          <span id="timer-display" role="timer" aria-label="Elapsed work time">
+          <span id="timer-display" role="timer" aria-label="Tiempo de estudio transcurrido">
             {timer.display}
           </span>
-          <span id="timer-caption">{timer.running ? 'Tracking time' : 'Work Time'}</span>
+          <span id="timer-caption">{timer.running ? 'Estudiando' : 'Sesión de estudio'}</span>
         </div>
       </div>
       <div className="timer-controls">
         <div className="playback-controls">
           <IconButton
             icon="play"
-            label="Start timer"
+            label="Iniciar estudio"
             id="timer-play"
             aria-pressed={timer.running}
             aria-disabled={timer.running}
@@ -53,7 +53,7 @@ export function TimeTrackerCard({ timer, onDetails }: { timer: WorkTimer; onDeta
           />
           <IconButton
             icon="pause"
-            label="Pause timer"
+            label="Pausar estudio"
             id="timer-pause"
             aria-disabled={!timer.running}
             onClick={timer.pause}
@@ -61,7 +61,7 @@ export function TimeTrackerCard({ timer, onDetails }: { timer: WorkTimer; onDeta
         </div>
         <IconButton
           icon="timer"
-          label="Reset timer"
+          label="Reiniciar tiempo"
           id="timer-reset"
           className="dark"
           onClick={timer.reset}

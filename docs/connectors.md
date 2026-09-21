@@ -17,11 +17,11 @@ interface DashboardConnector {
 Configuración predeterminada: `VITE_DATA_SOURCE=local`.
 
 - Contenido: `src/features/dashboard/data/reference-dashboard.ts`.
-- Estado persistente: `daspermind.dashboard.v1` en `localStorage`.
+- Estado persistente: `daspermind.usicamm.v1` en `localStorage`.
 - Datos corruptos o versión desconocida: recupera el estado inicial.
 - `rememberChanges: false`: conserva las interacciones de la sesión pero guarda los valores iniciales junto con las preferencias. Una recarga recupera la referencia.
 - Almacenamiento bloqueado: funciona en memoria durante la sesión, sin persistencia tras recargar.
-- Migra `crextio-dashboard-v1` si existe en el mismo origen. No accede a otros puertos, navegadores o dispositivos.
+- Usa una clave independiente del dashboard anterior. No importa sus tareas ni accede a otros puertos, navegadores o dispositivos.
 
 El estado no contiene información de autenticación. No se sincroniza entre usuarios ni entre pestañas abiertas.
 
@@ -49,7 +49,7 @@ Ejemplo de `DashboardState`:
 ```json
 {
   "schemaVersion": 1,
-  "completedTaskIds": ["interview", "meeting"],
+  "completedTaskIds": ["convocatoria", "expediente"],
   "elapsedSeconds": 155,
   "preferences": {
     "rememberChanges": true,

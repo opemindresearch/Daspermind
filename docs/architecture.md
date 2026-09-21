@@ -46,9 +46,9 @@ Los formularios mantienen su borrador local. La página suministra los datos com
 
 ## Estilos y recursos
 
-`tokens.css` reúne fuente y variables, `dashboard.css` conserva la composición, `responsive.css` contiene los puntos de adaptación y `states.css` presenta carga y errores. Se usa CSS normal para controlar la geometría de la referencia.
+`tokens.css` reúne fuente y variables, `dashboard.css` conserva la composición, `responsive.css` contiene los puntos de adaptación y `states.css` presenta carga y errores. `teacher-theme.css` aplica colores y recursos docentes sin cambiar la cuadrícula ni los puntos de adaptación. Se usa CSS normal para controlar la geometría de la referencia.
 
-La imagen es un recurso local con posiciones de recorte CSS. Si se sustituyen las fotografías por imágenes individuales, deben actualizarse los estilos del perfil, el dispositivo y los avatares.
+Los recursos docentes individuales están en `src/assets/usicamm/` y se sirven localmente. `teacher-theme.css` aplica la ilustración del perfil y el recurso de formación; los participantes de los recordatorios se representan con iconos. Los archivos y nombres internos del dashboard se conservan para mantener los contratos de componentes, servicios y conectores.
 
 ## Cómo ampliar el proyecto
 

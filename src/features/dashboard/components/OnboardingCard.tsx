@@ -1,11 +1,11 @@
 import { Icon, type IconName } from '@/components/ui/Icon';
 import type { DashboardData, OnboardingTask } from '../model/dashboard.schema';
 const taskIcons: Record<OnboardingTask['kind'], IconName> = {
-  interview: 'monitor',
-  meeting: 'bolt',
-  update: 'message',
-  goals: 'ruler',
-  policy: 'link',
+  interview: 'file',
+  meeting: 'file',
+  update: 'graduation',
+  goals: 'book',
+  policy: 'bell',
 };
 type Props = {
   onboarding: DashboardData['onboarding'];
@@ -15,6 +15,7 @@ type Props = {
 };
 export function OnboardingCard({ onboarding, completedIds, saving, onToggle }: Props) {
   const completed = new Set(completedIds);
+  const percent = onboarding.totalTasks ? Math.round(completed.size / onboarding.totalTasks * 100) : 0;
   return (
     <section
       className="panel onboarding-panel"
@@ -22,20 +23,21 @@ export function OnboardingCard({ onboarding, completedIds, saving, onToggle }: P
       aria-labelledby="onboarding-title"
     >
       <div className="panel-heading">
-        <h2 id="onboarding-title">Onboarding</h2>
-        <span className="onboarding-percentage">{onboarding.percent}%</span>
+        <h2 id="onboarding-title">Mi proceso</h2>
+        <span className="onboarding-percentage" aria-label="Avance de mi checklist">{percent}%</span>
       </div>
       <div
         className="onboarding-chart"
-        aria-label={`Task allocation: ${onboarding.segments.join(', ')} percent`}
+        aria-label={`Avances de ejemplo: perfil ${onboarding.segments[0]}%, documentos ${onboarding.segments[1]}%, preparación ${onboarding.segments[2]}%`}
       >
         {onboarding.segments.map((value, index) => (
           <div
             key={index}
             className={`onboarding-segment ${['yellow', 'charcoal', 'gray'][index]}`}
+            title={['Perfil', 'Documentos', 'Preparación'][index]}
           >
             <span className="segment-label">{value}%</span>
-            <div>{index === 0 ? 'Task' : null}</div>
+            <div>{index === 0 ? 'Perfil' : null}</div>
           </div>
         ))}
       </div>
@@ -44,7 +46,7 @@ export function OnboardingCard({ onboarding, completedIds, saving, onToggle }: P
         <div className="stack-sheet sheet-two" />
         <div className="task-card">
           <div className="task-heading">
-            <h3>Onboarding Task</h3>
+            <h3>Mi checklist</h3>
             <span id="task-count" aria-live="polite">
               {completed.size}/{onboarding.totalTasks}
             </span>

@@ -3,20 +3,22 @@ import type { DashboardData } from '../model/dashboard.schema';
 import type { DialogKind } from '../model/navigation';
 export function Overview({
   company,
+  pendingTasks,
   onOpen,
 }: {
   company: DashboardData['company'];
+  pendingTasks: number;
   onOpen: (kind: DialogKind) => void;
 }) {
   const allocations = [
-    { key: 'interviews', label: 'Interviews', value: company.allocation.interviews },
-    { key: 'hired', label: 'Hired', value: company.allocation.hired },
-    { key: 'project-time', label: 'Project time', value: company.allocation.projectTime },
-    { key: 'output', label: 'Output', value: company.allocation.output },
+    { key: 'interviews', label: 'Registro', value: company.allocation.interviews },
+    { key: 'hired', label: 'Perfil', value: company.allocation.hired },
+    { key: 'project-time', label: 'Preparación', value: company.allocation.projectTime },
+    { key: 'output', label: 'Cita', value: company.allocation.output },
   ];
   return (
-    <section className="overview" aria-label="Company overview">
-      <div className="allocation" aria-label="Work allocation">
+    <section className="overview" aria-label="Resumen de admisión de ejemplo">
+      <div className="allocation" aria-label="Avances ilustrativos por sección, no resultados oficiales">
         {allocations.map((item) => (
           <div key={item.key} className={`allocation-item ${item.key}`}>
             <span className="allocation-label">{item.label}</span>
@@ -27,19 +29,19 @@ export function Overview({
         ))}
       </div>
       <div className="company-stats">
-        <button type="button" className="stat" data-nav="People" onClick={() => onOpen('People')}>
-          <span className="stat-number">
-            <Icon name="people" />
-            <span>{company.employees}</span>
-          </span>
-          <span className="stat-label">Employe</span>
-        </button>
         <button type="button" className="stat" data-nav="Hiring" onClick={() => onOpen('Hiring')}>
           <span className="stat-number">
-            <Icon name="user-plus" />
+            <Icon name="file" />
+            <span>{company.employees}</span>
+          </span>
+          <span className="stat-label">Documentos</span>
+        </button>
+        <button type="button" className="stat" data-nav="Devices" onClick={() => onOpen('Devices')}>
+          <span className="stat-number">
+            <Icon name="book" />
             <span>{company.hirings}</span>
           </span>
-          <span className="stat-label">Hirings</span>
+          <span className="stat-label">Cursos</span>
         </button>
         <button
           type="button"
@@ -48,10 +50,10 @@ export function Overview({
           onClick={() => onOpen('projects')}
         >
           <span className="stat-number">
-            <Icon name="laptop" />
-            <span>{company.projects}</span>
+            <Icon name="check" />
+            <span id="pending-count">{pendingTasks}</span>
           </span>
-          <span className="stat-label">Projects</span>
+          <span className="stat-label">Pendientes</span>
         </button>
       </div>
     </section>

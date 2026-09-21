@@ -11,12 +11,12 @@ export function EmployeeDetailsCard({ employee, expanded, onExpand, onDevice }: 
   const sections = [
     {
       id: 'pension',
-      title: 'Pension contributions',
-      content: <div className="detail-content empty-detail">No contribution details added.</div>,
+      title: 'Datos personales',
+      content: <div className="detail-content"><span>{employee.name}</span><strong>Perfil de ejemplo</strong></div>,
     },
     {
       id: 'devices',
-      title: 'Devices',
+      title: 'Formación inicial',
       content: (
         <div className="device-content">
           <span className="device-image" role="img" aria-label={employee.device.name} />
@@ -28,7 +28,7 @@ export function EmployeeDetailsCard({ employee, expanded, onExpand, onDevice }: 
             type="button"
             className="device-more"
             data-dialog="device"
-            aria-label={`${employee.device.name} details`}
+            aria-label={`Ver formación: ${employee.device.name}`}
             onClick={onDevice}
           >
             <Icon name="dots" />
@@ -38,22 +38,22 @@ export function EmployeeDetailsCard({ employee, expanded, onExpand, onDevice }: 
     },
     {
       id: 'compensation',
-      title: 'Compensation Summary',
+      title: 'Mi participación',
       content: (
         <div className="detail-content">
-          <span>Compensation</span>
+          <span>Folio de ejemplo</span>
           <strong>{employee.compensationLabel}</strong>
         </div>
       ),
     },
     {
       id: 'benefits',
-      title: 'Employee Benefits',
-      content: <div className="detail-content empty-detail">No benefit details added.</div>,
+      title: 'Contacto y ayuda',
+      content: <div className="detail-content empty-detail"><a href="https://usicamm.sep.gob.mx/" target="_blank" rel="noreferrer">Consultar el directorio oficial de USICAMM</a></div>,
     },
   ] as const;
   return (
-    <section className="panel employee-details" id="employee-details" aria-label="Employee details">
+    <section className="panel employee-details" id="employee-details" aria-label="Datos del aspirante">
       {sections.map((section) => (
         <details
           key={section.id}

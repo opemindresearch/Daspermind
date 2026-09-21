@@ -1,5 +1,8 @@
 import type { ReactNode, SVGProps } from 'react';
 export type IconName =
+  | 'file'
+  | 'book'
+  | 'graduation'
   | 'arrow'
   | 'chevron'
   | 'user'
@@ -20,6 +23,9 @@ export type IconName =
   | 'dots'
   | 'close';
 const paths: Record<IconName, ReactNode> = {
+  file: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></>,
+  book: <><path d="M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Z"/><path d="M12 5v15"/></>,
+  graduation: <><path d="m2 9 10-5 10 5-10 5-10-5ZM6 11v6c4 3 8 3 12 0v-6M22 9v8"/></>,
   arrow: (
     <>
       <path d="M6 18 18 6M7 6h11v11" />

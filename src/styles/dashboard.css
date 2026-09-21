@@ -338,9 +338,9 @@ h1 {
 .portrait-source {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/images/dashboard-reference.webp');
-  background-size: 468.52% 361.44%;
-  background-position: 8.983% 47.375%;
+  background-image: url('../assets/images/maestro-luis.png');
+  background-size: cover;
+  background-position: center top;
   z-index: -3;
 }
 .portrait-shade {

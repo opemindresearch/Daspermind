@@ -67,8 +67,8 @@ export function Modal({
       onClick={backdropClick}
     >
       <div className="dialog-heading">
-        <span className="dialog-eyebrow">CREXTIO</span>
-        <IconButton icon="close" label="Close dialog" id="close-dialog" onClick={onClose} />
+        <span className="dialog-eyebrow">USICAMM · PERFIL DE EJEMPLO</span>
+        <IconButton icon="close" label="Cerrar diálogo" id="close-dialog" onClick={onClose} />
       </div>
       <h2 id="dialog-title">{title}</h2>
       <div id="dialog-content">{children}</div>

@@ -49,7 +49,7 @@ export function useDashboard() {
         return next;
       })
       .catch(() => {
-        if (mounted.current) setSaveError('Your change could not be saved. Please try again.');
+        if (mounted.current) setSaveError('No se pudo guardar el cambio. Vuelve a intentarlo.');
         return null;
       })
       .finally(() => {

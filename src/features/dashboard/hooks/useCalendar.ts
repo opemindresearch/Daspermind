@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import type { DashboardData } from '../model/dashboard.schema';
 const monthNames = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  'Enero',
+  'Febrero',
+  'Marzo',
+  'Abril',
+  'Mayo',
+  'Junio',
+  'Julio',
+  'Agosto',
+  'Septiembre',
+  'Octubre',
+  'Noviembre',
+  'Diciembre',
 ];
 export function useCalendar(calendar: DashboardData['calendar']) {
   const [offset, setOffset] = useState(0);
@@ -30,7 +30,7 @@ export function useCalendar(calendar: DashboardData['calendar']) {
     days:
       offset === 0
         ? calendar.referenceDays
-        : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => ({
+        : ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((day, index) => ({
             day,
             date: firstMonday + index,
           })),

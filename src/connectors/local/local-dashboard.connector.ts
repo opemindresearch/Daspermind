@@ -10,8 +10,8 @@ import {
 } from '@/features/dashboard/model/dashboard.schema';
 import type { KeyValueStorage } from '@/lib/storage';
 
-export const DASHBOARD_STORAGE_KEY = 'daspermind.dashboard.v1';
-const LEGACY_STORAGE_KEY = 'crextio-dashboard-v1';
+// A separate namespace prevents HR demo tasks from becoming teacher checklist entries.
+export const DASHBOARD_STORAGE_KEY = 'daspermind.usicamm.v1';
 
 export class LocalDashboardConnector implements DashboardConnector {
   private readonly storage: KeyValueStorage;
@@ -26,26 +26,8 @@ export class LocalDashboardConnector implements DashboardConnector {
     const defaults = createInitialState();
     try {
       const raw = this.storage.getItem(DASHBOARD_STORAGE_KEY);
-      let candidate: unknown;
-      if (raw) candidate = JSON.parse(raw);
-      else {
-        const legacy = JSON.parse(this.storage.getItem(LEGACY_STORAGE_KEY) ?? 'null') as Record<
-          string,
-          unknown
-        > | null;
-        if (!legacy) return defaults;
-        const settings = legacy.settings as
-          { remember?: boolean; reduceMotion?: boolean } | undefined;
-        candidate = {
-          ...defaults,
-          completedTaskIds: legacy.completed ?? defaults.completedTaskIds,
-          elapsedSeconds: legacy.elapsed ?? defaults.elapsedSeconds,
-          preferences: {
-            rememberChanges: settings?.remember ?? true,
-            reduceMotion: settings?.reduceMotion ?? false,
-          },
-        };
-      }
+      if (!raw) return defaults;
+      const candidate: unknown = JSON.parse(raw);
       const result = dashboardStateSchema.safeParse(candidate);
       if (!result.success) return defaults;
       const ids = new Set(referenceDashboard.onboarding.tasks.map((task) => task.id));
@@ -70,8 +52,6 @@ export class LocalDashboardConnector implements DashboardConnector {
       ? this.state
       : { ...createInitialState(), preferences: state.preferences };
     this.storage.setItem(DASHBOARD_STORAGE_KEY, JSON.stringify(saved));
-    // Prevent old data from being reimported after opting out of persistence.
-    this.storage.removeItem(LEGACY_STORAGE_KEY);
   }
   async resetState(preferences: DashboardPreferences, signal?: AbortSignal) {
     const state = { ...createInitialState(), preferences };

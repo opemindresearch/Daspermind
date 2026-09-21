@@ -38,7 +38,7 @@
     "vite": "^8.3.0",
     "vitest": "^5.0.1"
   },
-  "description": "Crextio dashboard in React and TypeScript, with typed local and HTTP connectors",
+  "description": "USICAMM teacher admission profile in React and TypeScript, with local and HTTP connectors",
   "engines": {
     "node": "^22.12.0 || ^24.0.0"
   }
