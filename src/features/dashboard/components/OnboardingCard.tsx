@@ -15,7 +15,9 @@ type Props = {
 };
 export function OnboardingCard({ onboarding, completedIds, saving, onToggle }: Props) {
   const completed = new Set(completedIds);
-  const percent = onboarding.totalTasks ? Math.round(completed.size / onboarding.totalTasks * 100) : 0;
+  const percent = onboarding.totalTasks
+    ? Math.round((completed.size / onboarding.totalTasks) * 100)
+    : 0;
   return (
     <section
       className="panel onboarding-panel"
@@ -24,7 +26,9 @@ export function OnboardingCard({ onboarding, completedIds, saving, onToggle }: P
     >
       <div className="panel-heading">
         <h2 id="onboarding-title">Mi proceso</h2>
-        <span className="onboarding-percentage" aria-label="Avance de mi checklist">{percent}%</span>
+        <span className="onboarding-percentage" aria-label="Avance de mi checklist">
+          {percent}%
+        </span>
       </div>
       <div
         className="onboarding-chart"

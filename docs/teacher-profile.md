@@ -8,14 +8,14 @@ El perfil **Luis Herrera**, su folio **AB-DEMO**, cifras, avances, horas y activ
 
 ## Correspondencia de las tarjetas
 
-| Tarjeta original | Contenido actual |
-| --- | --- |
+| Tarjeta original   | Contenido actual                                            |
+| ------------------ | ----------------------------------------------------------- |
 | Perfil de empleado | Perfil de docente aspirante, ilustración y folio de ejemplo |
-| Progreso | Preparación y horas de estudio ilustrativas |
-| Temporizador | Sesión de estudio con inicio, pausa y reinicio |
-| Onboarding | Checklist personal de participación y avances por sección |
-| Datos del empleado | Datos personales, formación, participación y ayuda |
-| Calendario | Agenda personal con recordatorios de ejemplo |
+| Progreso           | Preparación y horas de estudio ilustrativas                 |
+| Temporizador       | Sesión de estudio con inicio, pausa y reinicio              |
+| Onboarding         | Checklist personal de participación y avances por sección   |
+| Datos del empleado | Datos personales, formación, participación y ayuda          |
+| Calendario         | Agenda personal con recordatorios de ejemplo                |
 
 El checklist, el porcentaje de actividades realizadas y el contador de pendientes se actualizan juntos. Las tres barras de perfil, documentos y preparación representan avances independientes de ejemplo; sus anchos mantienen la composición original y no son partes de un total.
 

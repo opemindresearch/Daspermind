@@ -18,7 +18,10 @@ export function Overview({
   ];
   return (
     <section className="overview" aria-label="Resumen de admisión de ejemplo">
-      <div className="allocation" aria-label="Avances ilustrativos por sección, no resultados oficiales">
+      <div
+        className="allocation"
+        aria-label="Avances ilustrativos por sección, no resultados oficiales"
+      >
         {allocations.map((item) => (
           <div key={item.key} className={`allocation-item ${item.key}`}>
             <span className="allocation-label">{item.label}</span>

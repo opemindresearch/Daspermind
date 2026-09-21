@@ -12,7 +12,11 @@ export function ProfileCard({
       id="profile-card"
       aria-label={`${employee.name}, ${employee.role}`}
     >
-      <div className="portrait-source" role="img" aria-label="Ilustración de un docente para el perfil de ejemplo" />
+      <div
+        className="portrait-source"
+        role="img"
+        aria-label="Ilustración de un docente para el perfil de ejemplo"
+      />
       <div className="portrait-shade" />
       <div className="profile-caption">
         <div>

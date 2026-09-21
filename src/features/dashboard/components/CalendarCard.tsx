@@ -74,7 +74,9 @@ export function CalendarCard({
                 </span>
                 <span className="avatar-group" aria-hidden="true">
                   {event.avatars.map((avatar) => (
-                    <i key={avatar} className={`avatar avatar-${avatar}`}><Icon name={event.kind === 'team' ? 'book' : 'file'} /></i>
+                    <i key={avatar} className={`avatar avatar-${avatar}`}>
+                      <Icon name={event.kind === 'team' ? 'book' : 'file'} />
+                    </i>
                   ))}
                 </span>
               </button>

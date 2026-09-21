@@ -50,7 +50,9 @@ test('timer starts, pauses, persists, resets, and shares its state with the dial
   await page.locator('[data-dialog="timer"]').click();
   await expect(page.locator('#modal-timer')).toHaveText(paused);
   await page.getByRole('button', { name: 'Iniciar estudio', exact: true }).last().click();
-  await expect(page.getByRole('button', { name: 'Pausar estudio', exact: true }).last()).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Pausar estudio', exact: true }).last(),
+  ).toBeVisible();
   await page.getByRole('button', { name: 'Pausar estudio', exact: true }).last().click();
   await page.keyboard.press('Escape');
   await page.locator('#timer-reset').click();

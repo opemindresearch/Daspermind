@@ -39,9 +39,14 @@ describe('local dashboard persistence', () => {
         settings: { remember: true, reduceMotion: true },
       }),
     );
-    storage.setItem('daspermind.dashboard.v1', JSON.stringify({
-      ...createInitialState(), completedTaskIds: ['interview'], elapsedSeconds: 900,
-    }));
+    storage.setItem(
+      'daspermind.dashboard.v1',
+      JSON.stringify({
+        ...createInitialState(),
+        completedTaskIds: ['interview'],
+        elapsedSeconds: 900,
+      }),
+    );
     const connector = new LocalDashboardConnector(storage);
     const { state } = await connector.load();
     expect(state).toEqual(createInitialState());
@@ -68,7 +73,10 @@ describe('local dashboard persistence', () => {
     const storage = createSafeStorage();
     storage.setItem(
       DASHBOARD_STORAGE_KEY,
-      JSON.stringify({ ...createInitialState(), completedTaskIds: ['convocatoria', 'removed-task'] }),
+      JSON.stringify({
+        ...createInitialState(),
+        completedTaskIds: ['convocatoria', 'removed-task'],
+      }),
     );
     expect((await new LocalDashboardConnector(storage).load()).state.completedTaskIds).toEqual([
       'convocatoria',

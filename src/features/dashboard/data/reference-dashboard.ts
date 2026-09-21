@@ -23,11 +23,36 @@ export const referenceDashboard: DashboardData = {
     // Independent example progress values for profile, documents and preparation.
     segments: [80, 75, 45],
     tasks: [
-      { id: 'convocatoria', title: 'Revisar convocatoria', dateLabel: 'Consulta de referencia', kind: 'interview' },
-      { id: 'expediente', title: 'Organizar expediente', dateLabel: 'Documentos de ejemplo', kind: 'meeting' },
-      { id: 'curso', title: 'Revisar curso NEM', dateLabel: 'Habilidades docentes', kind: 'update' },
-      { id: 'guia', title: 'Repasar guía de estudio', dateLabel: 'Conocimientos y aptitudes', kind: 'goals' },
-      { id: 'avisos', title: 'Consultar avisos', dateLabel: 'Portal oficial USICAMM', kind: 'policy' },
+      {
+        id: 'convocatoria',
+        title: 'Revisar convocatoria',
+        dateLabel: 'Consulta de referencia',
+        kind: 'interview',
+      },
+      {
+        id: 'expediente',
+        title: 'Organizar expediente',
+        dateLabel: 'Documentos de ejemplo',
+        kind: 'meeting',
+      },
+      {
+        id: 'curso',
+        title: 'Revisar curso NEM',
+        dateLabel: 'Habilidades docentes',
+        kind: 'update',
+      },
+      {
+        id: 'guia',
+        title: 'Repasar guía de estudio',
+        dateLabel: 'Conocimientos y aptitudes',
+        kind: 'goals',
+      },
+      {
+        id: 'avisos',
+        title: 'Consultar avisos',
+        dateLabel: 'Portal oficial USICAMM',
+        kind: 'policy',
+      },
     ],
   },
   calendar: {
